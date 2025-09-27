@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // --- Cursor Animation Logic ---
     const cursor = document.querySelector('.cursor');
     setInterval(() => {
         cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
-    }, 800);  // Increased from default to 800ms for slower blinking
+    }, 800);
 
-    // --- Loading Screen Animation Logic ---
     const bootTextLines = [
         "ROBCO INDUSTRIES (TM) UNIFIED OPERATING SYSTEM", "COPYRIGHT 2075-2077 ROBCO INDUSTRIES", " ", "-SERVER 1-",
         "Initializing system",
@@ -42,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     typeBoot();
 
-    // --- Navigation Logic for Tabs ---
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.content-section');
     navLinks.forEach(link => {
@@ -56,14 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Terminal click sound function
     function playTerminalSound() {
         const audio = new Audio('Assets/PipBoy_Select.mp3');
         audio.volume = 0.8;
         audio.play();
     }
 
-    // Navigation Logic for Tabs with sound
     navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
@@ -76,10 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add sound to resume button
     document.querySelector('.resume-button').addEventListener('click', playTerminalSound);
 
-    // Add sound to all social icons
     document.querySelectorAll('.social-icons a').forEach(icon => {
         icon.addEventListener('click', playTerminalSound);
     });
