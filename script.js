@@ -24,18 +24,18 @@ document.addEventListener('DOMContentLoaded', function() {
             if (charIndex < currentLine.length) {
                 bootTextElement.innerHTML += currentLine.charAt(charIndex);
                 charIndex++;
-                setTimeout(typeBoot, 15); // Reduced from 30 to 15
+                setTimeout(typeBoot, 15);
             } else {
                 bootTextElement.innerHTML += '<br>';
                 lineIndex++;
                 charIndex = 0;
-                setTimeout(typeBoot, 150); // Reduced from 300 to 150
+                setTimeout(typeBoot, 150); 
             }
         } else {
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
                 mainUI.style.display = 'flex';
-            }, 250); // Reduced from 500 to 250
+            }, 250);
         }
     }
     typeBoot();
