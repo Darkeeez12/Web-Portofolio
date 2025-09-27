@@ -86,6 +86,21 @@ main {
     flex-grow: 1;
     overflow-y: auto;
     padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-green) transparent;
+}
+
+main::-webkit-scrollbar {
+    width: 6px;
+}
+
+main::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+main::-webkit-scrollbar-thumb {
+    background-color: var(--main-green);
+    border-radius: 3px;
 }
 
 footer {
@@ -150,22 +165,14 @@ p, li {
     align-items: center;
     justify-content: center;
     gap: 30px;
-    padding: 0 30px 0 30px;
+    padding: 0 30px;
     max-width: 90%;
     margin: 0 auto;
 }
 
-.content-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 60vh;
-    gap: 2rem;
-}
-
 .profile-photo {
     max-width: 300px;
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--main-green);
 }
 
 #about-me .bio-text {
@@ -252,7 +259,6 @@ p, li {
 .skill-list-wrapper {
     flex-grow: 1;
     overflow-y: auto;
-    margin-top: 10px;
     scrollbar-width: thin;
     scrollbar-color: var(--main-green) transparent;
 }
@@ -334,12 +340,6 @@ p, li {
 .project-entry:nth-child(1) .project-image,
 .project-entry:nth-child(3) .project-image {
     width: 450px; 
-    height: auto;
-    object-fit: contain;
-}
-
-.project-entry:nth-child(1) .project-image {
-    width: 500px;
     height: auto;
     object-fit: contain;
 }
