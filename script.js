@@ -14,28 +14,40 @@ document.addEventListener('DOMContentLoaded', function() {
     const bootTextElement = document.getElementById('boot-text');
     const loadingScreen = document.getElementById('loading-screen');
     const mainUI = document.getElementById('main-ui');
+    const skipButton = document.getElementById('skip-button');
 
     let lineIndex = 0;
     let charIndex = 0;
+    let isTyping = true;
+
+    function completeLoading() {
+        loadingScreen.style.display = 'none';
+        mainUI.style.display = 'flex';
+    }
+
+    skipButton.addEventListener('click', () => {
+        isTyping = false;
+        bootTextElement.innerHTML = bootTextLines.join('<br>');
+        setTimeout(completeLoading, 100);
+    });
 
     function typeBoot() {
+        if (!isTyping) return;
+        
         if (lineIndex < bootTextLines.length) {
             const currentLine = bootTextLines[lineIndex];
             if (charIndex < currentLine.length) {
                 bootTextElement.innerHTML += currentLine.charAt(charIndex);
                 charIndex++;
-                setTimeout(typeBoot, 15);
+                setTimeout(typeBoot, 35);
             } else {
                 bootTextElement.innerHTML += '<br>';
                 lineIndex++;
                 charIndex = 0;
-                setTimeout(typeBoot, 150); 
+                setTimeout(typeBoot, 200);
             }
         } else {
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-                mainUI.style.display = 'flex';
-            }, 250);
+            setTimeout(completeLoading, 300);
         }
     }
     typeBoot();

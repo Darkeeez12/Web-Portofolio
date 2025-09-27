@@ -391,6 +391,26 @@ p, li {
     transform: scale(1.1);
 }
 
+#skip-button {
+    position: absolute;
+    bottom: 30px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid var(--main-green);
+    color: var(--main-green);
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-shadow: 0 0 5px var(--main-green);
+    transition: all 0.2s ease-in-out;
+}
+
+#skip-button:hover {
+    background-color: var(--main-green);
+    color: var(--dark-charcoal);
+    text-shadow: none;
+}
+
 @media screen and (max-width: 1350px) {
     nav {
         gap: 5%;
