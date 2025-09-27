@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+    // --- Cursor Animation Logic ---
+    const cursor = document.querySelector('.cursor');
+    setInterval(() => {
+        cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+    }, 800);  // Increased from default to 800ms for slower blinking
+
     // --- Loading Screen Animation Logic ---
     const bootTextLines = [
         "ROBCO INDUSTRIES (TM) UNIFIED OPERATING SYSTEM", "COPYRIGHT 2075-2077 ROBCO INDUSTRIES", " ", "-SERVER 1-",

@@ -30,7 +30,7 @@ body::after {
     z-index: 2;
     background-size: 100% 3px, 4px 100%;
     pointer-events: none;
-    animation: flicker 0.15s infinite;
+    animation: flicker 0.7s infinite;
 }
 
 a {
@@ -150,18 +150,22 @@ p, li {
     align-items: center;
     justify-content: center;
     gap: 30px;
-    padding: 40px 30px 0 30px;
-    max-width: 1200px;
+    padding: 0 30px 0 30px;
+    max-width: 90%;
     margin: 0 auto;
 }
 
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    gap: 2rem;
+}
+
 .profile-photo {
-    width: 350px;
-    height: 350px;
-    border: 2px solid var(--main-green);
-    object-fit: cover;
-    object-position: center;
-    box-shadow: 0 0 10px var(--main-green);
+    max-width: 300px;
+    border: 2px solid var(--primary-color);
 }
 
 #about-me .bio-text {
