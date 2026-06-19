@@ -39,7 +39,6 @@ a {
 }
 
 @keyframes flicker { 0% { opacity: 0.2; } 20% { opacity: 0.8; } 40% { opacity: 0.3; } 60% { opacity: 0.9; } 80% { opacity: 0.4; } 100% { opacity: 1; } }
-@keyframes blink { 50% { opacity: 0; } }
 @keyframes glow { from { box-shadow: 0 0 5px var(--main-green); } to { box-shadow: 0 0 15px var(--main-green); } }
 
 #loading-screen {
@@ -60,14 +59,6 @@ a {
 
 #boot-text > p { margin: 0; }
 
-.cursor {
-    display: none;
-    width: 10px;
-    height: 1.5rem;
-    background-color: var(--main-green);
-    animation: blink 1s step-end infinite;
-    box-shadow: 0 0 5px var(--main-green);
-}
 
 #main-ui {
     display: none;
@@ -173,6 +164,8 @@ p, li {
 .profile-photo {
     max-width: 300px;
     border: 2px solid var(--main-green);
+    position: relative;
+    z-index: 5;
 }
 
 #about-me .bio-text {
@@ -320,7 +313,7 @@ p, li {
     margin-bottom: 10px;
 }
 
-.project-entry:nth-child(even) {
+.project-entry:nth-of-type(even) {
     flex-direction: row-reverse;
 }
 
@@ -335,32 +328,26 @@ p, li {
     flex-shrink: 0;
     object-fit: contain;
     height: auto;
+    position: relative;
+    z-index: 5;
 }
 
-.project-entry:nth-child(1) .project-image,
-.project-entry:nth-child(3) .project-image {
-    width: 450px; 
-    height: auto;
-    object-fit: contain;
-}
-
-.project-entry:nth-child(2) .project-image {
-    width: 500px;
-    height: auto;
-    object-fit: contain;
-}
-
-.project-entry:nth-child(3) .project-image {
+.campus-lan-img {
     width: 250px;
-    height: auto;
-    object-fit: contain;
 }
 
 .cert-image {
     width: 150px;
+    border: 2px solid var(--main-green);
     flex-shrink: 0;
     object-fit: contain;
     height: auto;
+    position: relative;
+    z-index: 5;
+}
+
+.cert-entry img[src*="cisco"] {
+    border: none;
 }
 
 .project-title-header {
