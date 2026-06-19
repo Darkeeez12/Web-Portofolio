@@ -22,19 +22,28 @@
 
     <div id="main-ui">
 
-        <main>
-            <section id="about-me" class="content-section active">
-                <h2>ABOUT ME</h2>
-                <div class="content-wrapper">
-                    <img src="Assets/Foto.jpg" alt="Muhammad Alif Ghazali" class="profile-photo">
+        <div id="terminal-cli">
+            <div class="cli-header-row">
+                <h3 class="cli-header">ROBCO TERMINAL</h3>
+                <button id="sound-toggle">[ SND: ON ]</button>
+            </div>
+            <div id="cli-output">Welcome to RobCo Unified OS shell. Type 'help' for commands.</div>
+            <div class="cli-input-line">
+                <span class="cli-prompt">guest@robco:~$</span>
+                <input type="text" id="cli-input" autocomplete="off" placeholder="Type a command..." />
+            </div>
+        </div>
+
+        <div id="main-display">
+            <main>
+                <section id="about-me" class="content-section active">
+                    <h2>ABOUT ME</h2>
+                    <div class="content-wrapper">
+                        <img src="Assets/Foto.jpg" alt="Muhammad Alif Ghazali" class="profile-photo">
                     <div class="bio-text">
                         <h3>Muhammad Alif Ghazali</h3>
                         <p>
-                            A Computer Science undergraduate at Binus University specializing in networking and Linux
-                            system administration. I am expanding my expertise into cloud technologies and applying
-                            defensive blue-team techniques where needed. My core strengths include network design, Linux
-                            administration, and creating clear technical documentation. Fast learner with strong
-                            communication skills, reliable in teams, and pragmatic in solving problems.
+                            A Computer Science undergraduate at Binus University specializing in Network Technology. Experienced as a Full-Stack Engineer and IoT Systems Integrator through internships at PT JIP and PT LRT Jakarta. My expertise spans Linux system administration and cloud infrastructure (Azure, Docker, Kubernetes). I am a fast learner with strong communication skills, dedicated to building reliable and pragmatic technical solutions.
                         </p>
                         <div class="contact-links">
                             <div class="left-side">
@@ -218,40 +227,46 @@
             </section>
 
             <section id="my-certifications" class="content-section">
-                <h2>MY CERTIFICATIONS</h2>
+                <h2>MY CERTIFICATIONS & CERTIFICATES</h2>
                 <div class="cert-entry">
                     <img src="Assets/networking-basics_badge.png" alt="Networking Basics Badge" class="cert-image">
                     <div>
-                        <h3>
-                            <a href="https://drive.google.com/file/d/1lQo4nPOzLJGcU7L57N8hK9o6Cqla1hs2/view?usp=drive_link"
-                                target="_blank">
-                                Cisco: Networking Basics
+                        <div class="project-title-header">
+                            <h3>Cisco: Networking Basics</h3>
+                            <a href="https://drive.google.com/file/d/1lQo4nPOzLJGcU7L57N8hK9o6Cqla1hs2/view?usp=drive_link" class="project-link-icon" target="_blank" title="View Certificate">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                                </svg>
                             </a>
-                        </h3>
+                        </div>
                         <p>Foundational knowledge in network communication, standards, protocols, and IP addressing.</p>
                     </div>
                 </div>
                 <div class="cert-entry">
                     <img src="Assets/introToCyber_badge.png" alt="Intro to Cybersecurity Badge" class="cert-image">
                     <div>
-                        <h3>
-                            <a href="https://drive.google.com/file/d/10VwEe0-Ek17jEYnhBxIlbV_NSTVXcYh3/view?usp=drive_link"
-                                target="_blank">
-                                Cisco: Introduction To Cybersecurity
+                        <div class="project-title-header">
+                            <h3>Cisco: Introduction To Cybersecurity</h3>
+                            <a href="https://drive.google.com/file/d/10VwEe0-Ek17jEYnhBxIlbV_NSTVXcYh3/view?usp=drive_link" class="project-link-icon" target="_blank" title="View Certificate">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                                </svg>
                             </a>
-                        </h3>
+                        </div>
                         <p>Skills in threat detection, data confidentiality, and network vulnerability assessment.</p>
                     </div>
                 </div>
                 <div class="cert-entry">
                     <img src="Assets/ICCSCI_badge.png" alt="ICCSCI Badge" class="cert-image">
                     <div>
-                        <h3>
-                            <a href="https://drive.google.com/file/d/1W1KMSQq0c7tVJBPdIWET9RS9a_nw153S/view?usp=drive_link"
-                                target="_blank">
-                                ICCSCI: Appreciation Certificate
+                        <div class="project-title-header">
+                            <h3>ICCSCI: Appreciation Certificate</h3>
+                            <a href="https://drive.google.com/file/d/1W1KMSQq0c7tVJBPdIWET9RS9a_nw153S/view?usp=drive_link" class="project-link-icon" target="_blank" title="View Certificate">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                                </svg>
                             </a>
-                        </h3>
+                        </div>
                         <p>Certificate of Appreciation for contribution as an Author at the 10th International
                             Conference on Computer Science and Computational Intelligence.</p>
                     </div>
@@ -264,9 +279,10 @@
                 <a href="#about-me" class="nav-link active">[ ABOUT ME ]</a>
                 <a href="#my-skills" class="nav-link">[ MY SKILLS ]</a>
                 <a href="#my-projects" class="nav-link">[ MY PROJECTS ]</a>
-                <a href="#my-certifications" class="nav-link">[ MY CERTIFICATIONS ]</a>
+                <a href="#my-certifications" class="nav-link">[ MY CERTIFICATIONS & CERTIFICATES ]</a>
             </nav>
         </footer>
+        </div>
     </div>
 
     <script src="script.js"></script>

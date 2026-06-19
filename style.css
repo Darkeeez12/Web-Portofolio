@@ -18,6 +18,20 @@ body {
     text-shadow: 0 0 5px var(--main-green);
 }
 
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%),
+                radial-gradient(circle at 50% 50%, rgba(45, 197, 106, 0.04), transparent 70%);
+    z-index: 3;
+    pointer-events: none;
+}
+
 body::after {
     content: " ";
     display: block;
@@ -62,19 +76,122 @@ a {
 
 #main-ui {
     display: none;
-    width: 80%;
-    margin: 5vh auto;
-    height: 90vh;
-    max-width: 1400px;
+    width: 90%;
+    margin: 3vh auto;
+    height: 94vh;
+    max-width: 1500px;
     border: 2px solid var(--main-green);
-    padding: 20px;
+    padding: 15px;
     background-color: rgba(45, 197, 106, 0.05);
     display: flex;
+    flex-direction: row;
+    gap: 15px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    transform: perspective(1000px) rotateX(0.5deg);
+    box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.6), 0 0 20px rgba(45, 197, 106, 0.15);
+}
+
+#main-ui::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.015) 30%, rgba(255, 255, 255, 0) 50%);
+    pointer-events: none;
+    z-index: 4;
+}
+
+#terminal-cli {
+    width: 280px;
+    min-width: 280px;
+    display: flex;
     flex-direction: column;
+    border: 1px solid rgba(45, 197, 106, 0.3);
+    background-color: rgba(45, 197, 106, 0.03);
+    padding: 15px;
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    overflow: hidden;
+}
+
+.cli-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(45, 197, 106, 0.4);
+}
+
+.cli-header {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+#cli-output {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: rgba(45, 197, 106, 0.85);
+    white-space: pre-wrap;
+    padding-right: 5px;
+    margin-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-green) transparent;
+}
+
+#cli-output::-webkit-scrollbar {
+    width: 4px;
+}
+#cli-output::-webkit-scrollbar-thumb {
+    background-color: var(--main-green);
+}
+
+.cli-input-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-top: 1px solid rgba(45, 197, 106, 0.3);
+    padding-top: 10px;
+    margin-top: auto;
+}
+
+.cli-prompt {
+    color: var(--main-green);
+    user-select: none;
+    white-space: nowrap;
+    font-size: 1rem;
+}
+
+#cli-input {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--main-green);
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    min-width: 0;
+}
+
+#main-display {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
 }
 
 main {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
     padding-right: 10px;
     scrollbar-width: thin;
@@ -96,16 +213,18 @@ main::-webkit-scrollbar-thumb {
 
 footer {
     flex-shrink: 0;
-    padding-top: 20px;
-    margin-top: 20px;
+    padding-top: 15px;
+    margin-top: 15px;
     border-top: 2px solid var(--main-green);
 }
 
 nav {
     display: flex;
     justify-content: center;
-    gap: 10%;
+    gap: 5%;
     flex-shrink: 0;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
 }
 
 nav a {
@@ -113,7 +232,9 @@ nav a {
     border: 2px solid transparent;
     border-bottom: none;
     transition: all 0.2s ease-in-out;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    white-space: nowrap;
+    margin-bottom: 5px;
 }
 
 nav a.active,
@@ -128,10 +249,12 @@ nav a:hover {
 section {
     display: none;
     padding: 10px;
+    flex-grow: 1;
+    flex-direction: column;
 }
 
 section.active {
-    display: block;
+    display: flex;
 }
 
 h2 {
@@ -158,7 +281,7 @@ p, li {
     gap: 30px;
     padding: 0 30px;
     max-width: 90%;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .profile-photo {
@@ -178,6 +301,7 @@ p, li {
 
 #about-me .bio-text p {
     font-size: 1.5rem;
+    text-align: justify;
 }
 
 .contact-links {
@@ -307,11 +431,7 @@ p, li {
     min-height: 160px;
 }
 
-#my-certifications h3 {
-    border-bottom: 1px solid rgba(45, 197, 106, 0.4);
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
+
 
 .project-entry:nth-of-type(even) {
     flex-direction: row-reverse;
@@ -320,6 +440,11 @@ p, li {
 .project-text,
 .cert-entry div {
     flex-grow: 1;
+}
+
+.project-text p,
+.cert-entry p {
+    text-align: justify;
 }
 
 .project-image {
@@ -398,13 +523,42 @@ p, li {
     text-shadow: none;
 }
 
+#sound-toggle {
+    background: transparent;
+    border: 1px solid rgba(45, 197, 106, 0.4);
+    color: var(--main-green);
+    font-family: 'VT323', monospace;
+    font-size: 0.95rem;
+    padding: 2px 6px;
+    cursor: pointer;
+    text-shadow: 0 0 5px var(--main-green);
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+}
+
+#sound-toggle:hover {
+    background-color: var(--main-green);
+    color: var(--dark-charcoal);
+    text-shadow: none;
+}
+
 @media screen and (max-width: 1350px) {
     nav {
-        gap: 5%;
+        gap: 3%;
     }
 }
 
 @media screen and (max-width: 1100px) {
+    #terminal-cli {
+        width: 240px;
+        min-width: 240px;
+    }
+
+    #about-me .content-wrapper {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
     .project-entry {
         flex-direction: column !important;
         gap: 20px;
@@ -435,18 +589,24 @@ p, li {
     #main-ui {
         width: 95%;
         padding: 10px;
-        margin: 2vh auto;
-        height: 96vh;
+        margin: 1vh auto;
+        height: 98vh;
+        flex-direction: column;
+    }
+
+    #terminal-cli {
+        display: none;
     }
 
     nav {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
 
     nav a {
         width: 100%;
         text-align: center;
+        font-size: 1.2rem;
     }
 
     #about-me .content-wrapper {
@@ -510,7 +670,7 @@ p, li {
     }
 
     nav a {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         padding: 8px 10px;
     }
 
